@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import '../App.css'
 import { useEffect, useState } from 'react';
 import { getProducts } from "";
