@@ -1,4 +1,10 @@
-.navbar{
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.Navbar{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -7,7 +13,7 @@
     padding: 10px 20px;
 }
 
-.navbar button{
+.Navbar button{
     background-color: transparent;
     border: none;
     margin-right: 10px;
@@ -16,17 +22,133 @@
     font-size: 16px;
 }
 
-.navbar h3 {
+.Navbar h3 {
     margin: 0;
     font-size: 24px;
 }
 
-.item-list-container {
-    text-align: center; 
+.ItemListContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
 }
   
-.item-list-container h1 {
+.ItemListContainer h1 {
     font-size: 24px;
     margin-top: 20px;
 }
-  
+
+.Logo{
+    text-decoration: none;
+    color: white;
+}
+
+.Menu{
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+.MenuLink{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.CardItem{
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 10px;
+    padding: 15px;
+    width: 200px;
+}
+
+.ItemImg {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.Info {
+  margin-bottom: 10px;
+}
+
+.ItemFooter {
+  display: flex;
+  flex-direction: column;
+    align-items: center;
+}
+
+.Option {
+  text-decoration: none;
+  color: #333;
+  background-color: #ffd700;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.ListGroup{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
+}
+
+.Counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.Controls {
+  display: flex;
+  gap: 10px;
+}
+
+.Button {
+    width: 40px;
+    height: 40px;
+    padding: 8px 12px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4caf50;
+    color: #fff;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.Button:hover {
+  background-color: #45a049;
+}
+
+.Number {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.Button:disabled {
+  background-color: #ddd;
+  color: #555;
+  cursor: not-allowed;
+}
+
+button.AddToCartButton{
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+}
+button.AddToCartButton:hover{
+    background-color: #0056b3;
+}
+button.AddToCartButton:disabled{
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
