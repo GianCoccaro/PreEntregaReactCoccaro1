@@ -15,6 +15,10 @@ const ItemCount = ({stock, initial, onAdd}) => {
         }
     }
 
+    const addToCart = () => {
+        onAdd(quantity);
+    }
+
     return(
         <div className="Counter">
             <div className="Controls">
@@ -23,7 +27,11 @@ const ItemCount = ({stock, initial, onAdd}) => {
                 <button className="Button" onClick={increment}>+</button>
             </div>
             <div>
-                <button className="Button AddToCartButton" onClick={() => onAdd(quantity)} disabled={!stock}>
+                <button
+                    className="Button AddToCartButton"
+                    onClick={addToCart}
+                    disabled={!stock}
+                >
                     Add to cart
                 </button>
             </div>

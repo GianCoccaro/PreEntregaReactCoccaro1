@@ -4,7 +4,7 @@ const products = [
         name: "Backpack Huguito",
         price: 1000,
         category: "backpacks",
-        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Golden_Retriever_9-year_old.jpg/800px-Golden_Retriever_9-year_old.jpg",
+        img: "https://bunny-cdn.ventasxmayor.com/6060d74cd1d2d2d24cd1d2d2d26363/public/57772739003353137/1643725371544-photoroom-20220125123710.png",
         stock: 25,
         description: "Product description"
     },
@@ -13,7 +13,7 @@ const products = [
         name: "T-shirt Huguito",
         price: 200,
         category: "t-shirts",
-        img: "./src/img/remera-perrito.jfif",
+        img: "https://acdn.mitiendanube.com/stores/440/495/products/remeras-dachshund-o-perro-salchicha1-9587b1710c8f63847515988313307043-480-0.png",
         stock: 25,
         description: "Product description"
     },
@@ -22,7 +22,7 @@ const products = [
         name: "Cup Huguito",
         price: 3000,
         category: "cups",
-        img: "./src/img/taza-perrito.jpg",
+        img: "https://www.curiosite.es/img/auto_catalogo/w618/32611.jpg",
         stock: 25,
         description: "Product description"
     }
