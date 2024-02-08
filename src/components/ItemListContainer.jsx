@@ -1,45 +1,48 @@
-import '../App.css'
-import { useEffect, useState } from 'react';
-import { getProducts,  getProductByCategory } from "../../asyncMock";
+import { useEffect, useState } from "react";
 import ItemList from "./ItemList";
-import { useParams } from 'react-router-dom';
-import { getDocs, collection, query, where } from 'firebase/firestore';
-import { db } from '../firebase/firebaseConfig';
+import { useParams } from "react-router-dom";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { db } from "../firebase/firebaseConfig";
+import { Link } from 'react-router-dom';
+import Button from '@mui/material/Button';
+import ButtonGroup from '@mui/material/ButtonGroup';
 
-const ItemListContainer = ({ greeting }) => {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
+const ItemListContainer = () => {
 
-  const { categoryId } = useParams()
+    const [products, setProducts] = useState([]);
+    const [title, setTitle] = useState("products");
+    const { category } = useParams();
 
-  useEffect(() => {
-    setLoading(true)
-    const collectionRef = categoryId
-      ? query(collection(db, 'products'), where('category', '==', categoryId))
-      : collection(db, 'products');
+    useEffect(() => {
+      const productsRef = collection(db, "products");
+      const q = category ? query(productsRef, where("category", "==", category)) : productsRef;
 
-    getDocs(collectionRef)
-      .then(response => {
-        const productsAdapted = response.docs.map(doc => {
-          const data = doc.data()
-          return { id: doc.id, ...data }
-        })
-        setProducts(productsAdapted)
-      })
-      .catch(error => {
-        console.log(error)
-      })
-      .finally(() => {
-        setLoading(false)
-      })
-  }, [categoryId])
-
+      getDocs(q)
+        .then((resp) => {
+          setProducts(
+            resp.docs.map((doc) => {
+              return { ...doc.data(), id: doc.id }
+            })
+          );
+          setTitle("Products");
+        });
+        
+    }, [category])
+     
   return (
-    <div className='item-list-container'>
-        <h1>{greeting}</h1>
-        <ItemList products={products} />
+    <div className="products-container">
+      <h1>PRODUCTS</h1>
+
+      <ButtonGroup variant="contained" aria-label="outlined primary button group">
+        <Button component={Link} to="/category/backpacks">Backpacks</Button>
+        <Button component={Link} to="/category/tshirts">T-Shirts</Button>
+        <Button component={Link} to="/category/cups">Cups</Button>
+        <Button component={Link} to="/products">All</Button>
+      </ButtonGroup>
+
+      <ItemList products={products} title={title} />
     </div>
   )
 }
 
-export default ItemListContainer
+export default ItemListContainer;

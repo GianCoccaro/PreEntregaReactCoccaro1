@@ -1,42 +1,16 @@
-import React, { useState } from 'react';
+const ItemCount = ( {quantity, handleDecrement, handleIncrement, handleAdd} ) => {
 
-const ItemCount = ({stock, initial, onAdd}) => {
-    const [quantity, setQuantity] = useState(initial)
+  return (
+    <div>
 
-    const increment = () => {
-        if(quantity < stock) {
-            setQuantity(quantity + 1)
-        }
-    }
-
-    const decrement = () => {
-        if(quantity > 1) {
-            setQuantity(quantity - 1)
-        }
-    }
-
-    const addToCart = () => {
-        onAdd(quantity);
-    }
-
-    return(
-        <div className="Counter">
-            <div className="Controls">
-                <button className="Button" onClick={decrement}>-</button>
-                <h4 className="Number">{quantity}</h4>
-                <button className="Button" onClick={increment}>+</button>
-            </div>
-            <div>
-                <button
-                    className="Button AddToCartButton"
-                    onClick={addToCart}
-                    disabled={!stock}
-                >
-                    Add to cart
-                </button>
-            </div>
+        <div className="productCounter">
+            <button className="counterButton" onClick={handleDecrement}>-</button>
+            <p className="counterValue">{quantity}</p>
+            <button className="counterButton" onClick={handleIncrement}>+</button>
         </div>
-    )
+        <button className="addToCartButton" onClick={handleAdd}>Add to cart</button>
+    </div>
+  )
 }
 
-export default ItemCount
+export default ItemCount;

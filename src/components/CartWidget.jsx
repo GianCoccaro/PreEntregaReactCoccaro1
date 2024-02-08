@@ -3,16 +3,17 @@ import { useContext } from 'react';
 import { CartContext } from '../context/CartContext';
 import { Link } from 'react-router-dom';
 import '../App.css';
-// import cart from 'cart.svg'
 
 const CartWidget = () => {
-  const { totalQuantity } = useContext(CartContext);
+  const { quantityInCart } = useContext(CartContext);
 
   return (
-    <Link to='/cart' className='CartWidget' style={{ display: totalQuantity > 0 ? 'block' : 'none' }}>
-      <img className='CartImg' src={cart} alt="cart-widget" />
-      { totalQuantity }
-    </Link>
+    <div>
+      <Link className="menu-link" to="/cart">
+        <ShoppingCartIcon sx={{ color: 'black' }} />
+        <span className="cart-number">{ quantityInCart() }</span>
+      </Link>
+    </div>
   )
 }
 

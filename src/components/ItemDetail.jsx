@@ -1,52 +1,65 @@
-import { Link } from 'react-router-dom';
-import '../App.css';
-import ItemCount from './ItemCount';
+import { useContext, useState } from "react";
+import { CartContext } from "../context/CartContext";
+import ItemCount from "../components/ItemCount";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
+import CardActions from "@mui/material/CardActions";
 
-const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
-    const [quantityAdded, setQuantityAdded] = useState(0);
+const ItemDetail = ({ item }) => {
+    const { addToCart } = useContext(CartContext);
+    const [quantity, setQuantity] = useState(1);
 
-    const handleOnAdd = (quantity) => {
-        setQuantityAdded(quantity);
-
-        const item = {
-            id, name, price
-        }
-
-        addItem(item, quantity);
-    }
+    const handleDecrement = () => {
+      quantity > 1 && setQuantity(quantity - 1)
+    };
     
-    return(
-        <article className="CardItem">
-            <header className="Header">
-                <h2 className="ItemHeader">
-                    {name}
-                </h2>
-            </header>
-            <picture>
-                <img src={img} alt={name} className='ItemImg' />
-            </picture>
-            <section>
-                <p className="Info">
-                    Category: {category}
-                </p>
-                <p className="Info">
-                    Description: {description}
-                </p>
-                <p className="Info">
-                    Price: ${price}
-                </p>
-            </section>
-            <footer className="ItemFooter">
-                {
-                    quantityAdded > 0 ? (
-                        <Link to='/cart' className='Option'>Terminar compra</Link>
-                    ) : (
-                        <ItemCount initial={1} stock={stock} onAdd={handleOnAdd} />
-                    )
-                }
-            </footer>
-        </article>
-    )
+    const handleIncrement = () => {
+      quantity < item.stock && setQuantity(quantity + 1)
+    };
+    
+    const handleAdd = () => {
+      if (quantity > 0) {
+        addItem(item, quantity);
+      } else {
+        console.log("Please select at least one product to add to the cart");
+      }
+    };
+
+  return (
+    <Card>
+      <CardMedia
+        sx={{ height: "400px", width:"400px" }}
+        image={item.image?.path}
+        title={item.title}
+        alt={item.description}
+      />
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+          {item.title}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          Description: {item.description}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          Category: {item.category}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          Price: ${item.price}
+        </Typography>
+        <CardActions>
+          <ItemCount
+            quantity={quantity}
+            handleDecrement={handleDecrement}
+            handleIncrement={handleIncrement}
+            handleAdd={() => { addToCart(item, quantity) }}
+          />
+        </CardActions>
+        
+      </CardContent>
+    </Card>
+  )
 }
 
-export default ItemDetail
+export default ItemDetail;

@@ -6,33 +6,27 @@ import { getDoc, doc } from 'firebase/firestore';
 import { db } from '../firebase/firebaseConfig';
 
 const ItemDetailContainer = () => {
-  const [product, setProducts] = useState(null)
+  const [item, setItem] = useState(null)
   const [loading, setLoading] = useState(null)
 
-  const { itemId } = useParams()
+  const id = useParams().id
 
   useEffect(() => {
     setLoading(true)
 
-    const docRef = doc(db, 'products', itemId)
+    const docRef = doc(db, 'products', id)
 
     getDoc(docRef)
       .then(response => {
-        const data = response.data()
-        const productAdapted = { id: response.id, ...data }
-        setProducts(productAdapted)
+        setItem(
+          { ...response.data(), id: response.id }
+        )
       })
-      .catch(error => {
-        console.log(error)
-      })
-      .finally(() => {
-        setLoading(false)
-      })
-  }, [itemId])
+  }, [id])
 
   return (
-    <div className='ItemDetailContainer'>
-      <ItemDetail {...product} />
+    <div>
+        {item && <ItemDetail item={item} />}
     </div>
   );
 }
