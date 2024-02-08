@@ -1,154 +1,153 @@
-body{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-.Navbar{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: paleturquoise;
-    color: white;
-    padding: 10px 20px;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-.Navbar button{
-    background-color: transparent;
-    border: none;
-    margin-right: 10px;
-    color: white; 
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.Navbar h3 {
-    margin: 0;
-    font-size: 24px;
-}
-
-.ItemListContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 20px;
-}
-  
-.ItemListContainer h1 {
-    font-size: 24px;
-    margin-top: 20px;
-}
-
-.Logo{
-    text-decoration: none;
-    color: white;
-}
-
-.Menu{
-    list-style-type: none;
-    display: flex;
-    gap: 20px;
-}
-
-.MenuLink{
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-}
-
-.CardItem{
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    margin: 10px;
-    padding: 15px;
-    width: 200px;
-}
-
-.ItemImg {
-  width: 100%;
-  border-radius: 8px;
-  margin-bottom: 10px;
-}
-
-.Info {
-  margin-bottom: 10px;
-}
-
-.ItemFooter {
+.Navbar {
   display: flex;
-  flex-direction: column;
-    align-items: center;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #f59f1f;
+}
+
+.Logo {
+  text-decoration: none;
+  color: #333;
+  font-size: 1.5rem;
+}
+.Logo h1{
+  color: black;
+}
+
+.Menu {
+  list-style: none;
+  display: flex;
+}
+.Menu li a {
+  text-decoration: none;
+  color: black;
+  padding: 10px;
 }
 
 .Option {
+  margin-right: 20px;
   text-decoration: none;
   color: #333;
-  background-color: #ffd700;
-  padding: 8px 15px;
-  border-radius: 5px;
-  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
 }
 
-.ListGroup{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: space-around;
+.ActiveOption {
+  color: #ff4500;
 }
 
-.Counter {
+.cart-number {
+  background-color: #ff4500;
+  color: #fff;
+  border-radius: 50%;
+  padding: 5px 10px;
+  margin-left: 5px;
+  text-decoration: none;
+}
+
+.banner {
+  position: relative;
+}
+
+.banner img {
+  width: 100%;
+  height: auto;
+}
+
+.bannerContent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #ff4500;
+}
+
+.products-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.product-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.product {
+  max-width: 250px;
+  margin: 15px;
+}
+
+.product-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
 }
 
-.Controls {
-  display: flex;
-  gap: 10px;
+.product-image {
+  width: 100%;
+  height: auto;
 }
 
-.Button {
-    width: 40px;
-    height: 40px;
-    padding: 8px 12px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #4caf50;
-    color: #fff;
-  border: none;
-  border-radius: 4px;
-  transition: background-color 0.3s;
-}
-
-.Button:hover {
-  background-color: #45a049;
-}
-
-.Number {
-  font-size: 18px;
+.product-price {
   font-weight: bold;
 }
 
-.Button:disabled {
-  background-color: #ddd;
-  color: #555;
-  cursor: not-allowed;
+.product-counter {
+  margin-top: 10px;
 }
 
-button.AddToCartButton{
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #007bff;
-    color: #fff;
-}
-button.AddToCartButton:hover{
-    background-color: #0056b3;
-}
-button.AddToCartButton:disabled{
-    background-color: #ccc;
-    cursor: not-allowed;
+.card {
+  width: 400px;
+  margin: 20px;
 }
 
+.product {
+  margin: 20px;
+}
+
+.container-cart {
+  padding: 20px;
+}
+
+.title-cart {
+  margin-bottom: 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.about-us {
+  padding: 20px;
+}
+
+.contact-container {
+  padding: 20px;
+}
+
+.main-title {
+  margin-bottom: 20px;
+}

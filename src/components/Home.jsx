@@ -1,4 +1,4 @@
-import imgBanner from '../img/banner.jpg';
+import imgBanner from '../../public/img/banner.jpg';
 import '../App.css';
 
 const Home = () => {

@@ -21,7 +21,7 @@ function App() {
               {/* <Route exact path="/item" element={ <ItemDetailContainer /> } /> */}
               <Route exact path="/item/:id" element={<ItemDetailContainer />} />
               <Route exact path="/category/:category" element={<ItemListContainer />} />
-              {/* <Route exact path="/products/:id" element={<ItemDetailContainer />} /> */}
+              <Route exact path="/products/:id" element={<ItemDetailContainer />} />
               <Route exact path="/products" element={<ItemListContainer />} />
               <Route exact path="/aboutus" element={ <Aboutus /> } />
               <Route exact path="/contact" element={ <Contact /> } />

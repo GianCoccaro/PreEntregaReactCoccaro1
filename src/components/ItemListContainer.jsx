@@ -40,7 +40,9 @@ const ItemListContainer = () => {
         <Button component={Link} to="/products">All</Button>
       </ButtonGroup>
 
-      <ItemList products={products} title={title} />
+      <div className="product-container">
+        <ItemList products={products} title={title} />
+      </div>
     </div>
   )
 }
