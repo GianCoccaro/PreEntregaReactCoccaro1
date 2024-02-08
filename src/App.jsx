@@ -3,6 +3,7 @@ import NavBar from './components/NavBar';
 import { BrowserRouter, Routes, Route} from "react-router-dom";
 import ItemDetailContainer from './components/ItemDetailContainer';
 import ItemListContainer from './components/ItemListContainer';
+import Cart from './components/Cart';
 import { CartProvider } from './context/CartContext';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
             <Route exact path="/" element={ <ItemListContainer greeting={"Todos los productos"} /> } />
             <Route exact path="/category/:categoryId" element={ <ItemListContainer greeting={"Productos por categoría"} /> } />
             <Route exact path="/item/:itemId" element={ <ItemDetailContainer /> } />
+            <Route exact path="/cart" element={<Cart />} />
             <Route exact path="*" element={<h1>404 NOT FOUND</h1>} />
           </Routes>
         </CartProvider>
