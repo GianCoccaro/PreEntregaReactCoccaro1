@@ -7,6 +7,7 @@ import CardActions from '@mui/material/CardActions';
 import ItemCount from './ItemCount';
 import { useContext, useState } from "react";
 import { CartContext } from '../context/CartContext';
+import '../App.css';
 
 const Item = ( {product} ) => {
   const { id, title, image, price, stock} = product;
@@ -36,7 +37,7 @@ const Item = ( {product} ) => {
                   className="product-image"
                 />
               <CardContent sx={{ paddingBottom: '0' }}>
-                <Typography gutterBottom variant="h5" component="div" sx={{ color: 'black', fontSize: '20px' }}>
+                <Typography gutterBottom variant="h5" component="div" sx={{ color: 'black', fontSize: '20px', textDecoration: 'none' }}>
                   {title}
                 </Typography>
               </CardContent>
